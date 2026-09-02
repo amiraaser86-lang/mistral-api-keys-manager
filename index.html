@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral API Keys Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-key"></i> Mistral API Keys</h1>
+            <p>Manage your organization's API keys securely</p>
+        </header>
+
+        <main>
+            <div class="api-actions">
+                <button id="addKeyBtn" class="btn primary">
+                    <i class="fas fa-plus"></i> Add New API Key
+                </button>
+            </div>
+
+            <div id="keysList" class="keys-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading keys...
+                </div>
+            </div>
+
+            <div id="keyFormModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modalTitle">Add New API Key</h2>
+                    <form id="apiKeyForm">
+                        <div class="form-group">
+                            <label for="keyName">Name</label>
+                            <input type="text" id="keyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="keyDescription">Description</label>
+                            <textarea id="keyDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Permissions</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="permissions" value="read"> Read</label>
+                                <label><input type="checkbox" name="permissions" value="write"> Write</label>
+                                <label><input type="checkbox" name="permissions" value="admin"> Admin</label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary">Save</button>
+                            <button type="button" class="btn secondary" id="cancelBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="notification" class="notification"></div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
